@@ -1,0 +1,74 @@
+/* ================= Navbar Light Blue Background ================= */
+.navbar-light-bg {
+  background-color: #3399d6; /* lighter blue */
+  border-radius: 8px;
+  padding: 20px 17px; 
+  display: flex;
+  align-items: center;
+}
+
+/* Search input inside navbar */
+.navbar-light-bg input {
+  background-color: #00437a !important; /* dark blue inside search */
+  border: none !important;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+/* Cart button */
+.navbar-cart-btn {
+  background-color: #3399d6; /* lighter blue */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Username / Profile icon */
+.navbar-user-btn {
+  background-color: #3399d6; /* lighter blue */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+}
+
+/* Scheduled / Quick buttons fully rounded toggle */
+.delivery-mode-toggle .btn {
+  border-radius: 50px; /* pill-shaped */
+  min-width: 100px;    
+  font-weight: 600;
+  padding: 6px 20px;
+  text-align: center;
+}
+
+.delivery-mode-toggle .btn + .btn {
+  margin-left: 5px; /* gap between toggle buttons */
+}
+
+/* Logo styling */
+.navbar-logo-bg {
+  background-color: #3399d6;
+  border-radius: 8px;
+  padding: 3px 5px;
+  display: flex;
+  align-items: center;
+}
+
+/* Delivery Address Dropdown */
+
+
+

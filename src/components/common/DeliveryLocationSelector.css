@@ -1,0 +1,52 @@
+.bottom-modal {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 1050;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal-content-custom {
+  background: white;
+  border-radius: 12px 12px 0 0;
+  padding: 20px;
+  animation: slideUp 0.3s ease-out;
+   color: #000; 
+  
+
+}
+
+.small-bottom-modal {
+  max-width: 460px;
+  width: 100%;
+}
+
+.small-content-custom {
+  width: 100%;
+  max-height: 360px;
+  overflow-y: auto;
+  font-size: 0.95rem;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+.saved-address-box {
+  border: 1px solid #007bff;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #f8f9fa;
+  width:150px;
+}
+.saved-address-box p {
+  margin: 0;
+}

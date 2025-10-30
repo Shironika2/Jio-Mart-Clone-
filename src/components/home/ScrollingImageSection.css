@@ -1,0 +1,46 @@
+.scrolling-images-section {
+  position: relative;
+  margin-bottom: 1rem; /* mb-4 equivalent */
+  padding-left: 3rem; /* px-5 simplified */
+  padding-right: 3rem;
+}
+
+.scrolling-images-section .scroll-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.scrolling-images-section .left-arrow {
+  left: 3.5rem;
+}
+
+.scrolling-images-section .right-arrow {
+  right: 3.5rem;
+}
+
+.scrolling-images-section .scroll-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.scrolling-images-section .scroll-image {
+  flex: 0 0 auto;
+  width: 320px;
+  height: 280px;
+  object-fit: contain;
+  margin-right: 0.5rem; /* me-2 equivalent */
+}
