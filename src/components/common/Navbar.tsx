@@ -140,14 +140,21 @@ export default function Navbar() {
 
           {/* Cart & User */}
           <div className="d-flex align-items-center">
-            {/* Cart */}
-            <div className="position-relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-              <button className="navbar-cart-btn mx-3">
-                🛒
-                <span className="cart-count-badge">{cartCount > 0 ? cartCount : ''}</span>
-              </button>
-              {showCartDropdown && <CartDropdown />}
-            </div>
+          {/* Cart */}
+<div
+  className="position-relative"
+  onMouseEnter={handleMouseEnter}
+  onMouseLeave={handleMouseLeave}
+>
+  <button className="navbar-cart-btn mx-3 btn border-0 bg-transparent position-relative">
+    <i className="bi bi-cart3 fs-4"></i>
+    <span className="cart-count-badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+      {cartCount > 0 ? cartCount : ''}
+    </span>
+  </button>
+  {showCartDropdown && <CartDropdown />}
+</div>
+
 
             {/* Sign In / Profile */}
             {!isLoggedIn ? (

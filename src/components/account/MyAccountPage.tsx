@@ -143,29 +143,31 @@ localStorage.removeItem('usedCoupons');
           >
             <h5 className="fw-bold mb-4">My Account</h5>
             <div className="list-group">
-              {[
-                { key: 'account', label: 'Account',  },
-                { key: 'orders', label: 'My Orders'},
-                { key: 'wishlist', label: 'Wishlist' },
-                { key: 'coupons', label: 'Coupons' },
-                { key: 'delivery', label: 'Delivery Addresses' },
-                { key: 'help', label: 'Help & Support'},
-                { key: 'legal', label: 'Legal Information' },
-              ].map((item) => (
-                <button
-                  key={item.key}
-                  onClick={() => setActiveSection(item.key)}
-                  className={`list-group-item list-group-item-action d-flex align-items-center py-3 rounded ${
-                    activeSection === item.key
-                      ? 'bg-primary text-white fw-semibold'
-                      : 'text-dark bg-transparent'
-                  }`}
-                  style={{ border: 'none', transition: 'all 0.3s ease' }}
-                >
-                 
-                  <span>{item.label}</span>
-                </button>
-              ))}
+  {[
+    { key: 'account', label: 'Account', icon: 'bi-person-circle' },
+    { key: 'orders', label: 'My Orders', icon: 'bi-bag-check' },
+    { key: 'wishlist', label: 'Wishlist', icon: 'bi-heart' },
+    { key: 'coupons', label: 'Coupons', icon: 'bi-ticket-perforated' },
+    { key: 'delivery', label: 'Delivery Addresses', icon: 'bi-geo-alt' },
+    { key: 'help', label: 'Help & Support', icon: 'bi-question-circle' },
+    { key: 'legal', label: 'Legal Information', icon: 'bi-file-earmark-text' },
+  ].map((item) => (
+    <button
+      key={item.key}
+      onClick={() => setActiveSection(item.key)}
+      className={`list-group-item list-group-item-action d-flex align-items-center py-3 rounded ${
+        activeSection === item.key
+          ? 'bg-primary text-white fw-semibold'
+          : 'text-dark bg-transparent'
+      }`}
+      style={{ border: 'none', transition: 'all 0.3s ease' }}
+    >
+      <i className={`bi ${item.icon} me-3 fs-5`}></i>
+      <span>{item.label}</span>
+    </button>
+  ))}
+
+
 
               <button
                 className="list-group-item list-group-item-action text-danger mt-3 d-flex align-items-center border-0 bg-transparent"

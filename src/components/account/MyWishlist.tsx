@@ -97,18 +97,23 @@ export default function MyWishlist() {
                       <h5 className="card-title product-title mb-0">
                         {product.title.substring(0, 30)}...
                       </h5>
-                      <button
-                        className="btn btn-link p-0"
-                        onClick={() => toggleLike(String(product.id))} // unlike
-                        style={{
-                          color: isLiked ? 'red' : 'gray',
-                          fontSize: '1.2em',
-                          border: 'none',
-                          background: 'none',
-                        }}
-                      >
-                        ❤️
-                      </button>
+                     <button
+  className="btn btn-link p-0"
+  onClick={() => toggleLike(String(product.id))}
+  style={{
+    color: isLiked ? 'red' : 'gray',
+    fontSize: '1.4em',
+    border: 'none',
+    background: 'none',
+    transition: 'transform 0.2s ease, color 0.3s ease',
+  }}
+  onMouseDown={(e) => (e.currentTarget.style.transform = 'scale(1.2)')}
+  onMouseUp={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+  title={isLiked ? 'Remove from Wishlist' : 'Add to Wishlist'} // tooltip
+>
+  <i className={`bi ${isLiked ? 'bi-heart-fill' : 'bi-heart'}`}></i>
+</button>
+
                     </div>
                     <p className="card-text product-price">${product.price}</p>
                     <div className="d-flex justify-content-between align-items-center mt-auto">

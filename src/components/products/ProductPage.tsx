@@ -84,16 +84,27 @@ export default function ProductPage() {
             </div>
           </div>
 
-          {/* Product Info */}
-          <div className="col-md-7 mb-4">
-            <div className="card p-4 border-0 shadow-sm w-100">
-              <div className="d-flex justify-content-between align-items-center mb-2">
-                <h1 className="h5 mb-0 fw-bold">{product.title}</h1>
-                <span
-                  onClick={() => toggleLike(String(product.id))}
-                  style={{ cursor: 'pointer', fontSize: '1.2em', color: likedProducts.has(String(product.id)) ? 'red' : 'black' }}
-                >♡</span>
-              </div>
+      {/* Product Info */}
+<div className="col-md-7 mb-4">
+  <div className="card p-4 border-0 shadow-sm w-100">
+    <div className="d-flex justify-content-between align-items-center mb-2">
+      <h1 className="h5 mb-0 fw-bold">{product.title}</h1>
+
+      <i
+        className={`bi ${
+          likedProducts.has(String(product.id)) ? "bi-heart-fill text-danger" : "bi-heart"
+        }`}
+        onClick={() => toggleLike(String(product.id))}
+        style={{
+          cursor: "pointer",
+          fontSize: "1.4em",
+          transition: "transform 0.2s ease, color 0.3s ease",
+        }}
+        onMouseDown={(e) => (e.currentTarget.style.transform = "scale(1.3)")}
+        onMouseUp={(e) => (e.currentTarget.style.transform = "scale(1)")}
+      ></i>
+    </div>
+
 
               <div className="d-flex align-items-center mb-3">
                 <span className="text-warning me-2">

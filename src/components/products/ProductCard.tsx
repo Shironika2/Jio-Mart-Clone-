@@ -1,18 +1,19 @@
 import React from "react";
-import type { ProductCardProps, Product } from "../../types";
+import type { ProductCardProps } from "../../types";
 import { useLike } from "../../hooks/useLike";
 import { useAddToCart } from "../../hooks/useAddToCart";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 const ProductCard: React.FC<ProductCardProps> = ({
   product,
   onClick,
-  cardWidth = "200px"
+  cardWidth = "200px",
 }) => {
-  // Ensure product.id is treated as a string for consistency with hooks
   const productIdString = String(product.id);
-
   const { likedProducts, toggleLike } = useLike();
   const { addToCart } = useAddToCart();
+
+  const isLiked = likedProducts.has(productIdString);
 
   return (
     <div
@@ -27,24 +28,28 @@ const ProductCard: React.FC<ProductCardProps> = ({
           alt={product.title}
           style={{ height: "100px", objectFit: "contain" }}
         />
-        <span
+        <i
+          className={`bi ${isLiked ? "bi-heart-fill text-danger" : "bi-heart"}`}
           onClick={(e) => {
-            e.stopPropagation(); // Prevent click from propagating to the card's main onClick
+            e.stopPropagation(); // Prevent card click
             toggleLike(productIdString);
           }}
-          className="position-absolute top-0 end-0 p-2"
           style={{
+            position: "absolute",
+            top: "8px",
+            right: "8px",
             cursor: "pointer",
-            fontSize: "1.2em",
-            color: likedProducts.has(productIdString) ? "red" : "black",
+            fontSize: "1.3rem",
+            transition: "color 0.3s ease",
           }}
-        >
-          ♡
-        </span>
+        ></i>
       </div>
+
       <div className="card-body d-flex flex-column">
-        <h6 className="card-title mb-1 ">
-          {product.title.length > 25 ? product.title.substring(0, 25) + "..." : product.title}
+        <h6 className="card-title mb-1">
+          {product.title.length > 25
+            ? product.title.substring(0, 25) + "..."
+            : product.title}
         </h6>
         <p className="card-text text-success mb-2">
           ₹{product.price.toLocaleString("en-IN", { maximumFractionDigits: 2 })}
@@ -52,16 +57,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
         <button
           className="btn btn-add w-100 mt-auto"
           onClick={(e) => {
-            e.stopPropagation(); // Prevent click from propagating to the card's main onClick
-            // Pass the product object, ensuring its ID is handled correctly by the hook.
-            // If the hook expects a string ID, it should handle the conversion or the Product type should be adjusted.
-            // For now, we pass the product object as is, assuming the hook can manage it or the Product type is consistent.
+            e.stopPropagation();
             addToCart(product);
           }}
         >
           Add
         </button>
-        
       </div>
     </div>
   );
